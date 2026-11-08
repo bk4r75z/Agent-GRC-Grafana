@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: GRC PostgreSQL
+    uid: grc-postgres
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: postgres:5432
+    user: grc_reader            # rôle PostgreSQL en lecture seule
+    isDefault: true
+    editable: false
+    jsonData:
+      database: grc
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+    secureJsonData:
+      password: grc_reader
